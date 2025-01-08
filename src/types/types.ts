@@ -30,3 +30,10 @@ console.log(arrayOfNumbers2[2]); // 20
 // 해당 타입 요소만 허용되는 배열 = 튜플이므로 선언 주의
 //let singleNumberTuple: [number, number];
 //singleNumberTuple = [5, 12];
+
+
+// 함수의 명시적 타입 지정 방법 (매개변수 / Parameter)
+function greeter(name:string):string{  // 반환 타입 지정을 습관화 하자.
+    return "Hello, " + name;
+}
+console.log(greeter("Tom"));

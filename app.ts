@@ -48,5 +48,11 @@ let meterLength = addLength / 100;
 //.. 개발 진행 과정..
 //.. 개발 진행 완료
 
-console.log(addLength);
-console.log(meterLength);
+console.log(addLength + "m");
+console.log(meterLength + "m");
+
+
+//---------------                (반환 타입)
+function add( x:number, y:number ):number {
+    return x+y;
+}

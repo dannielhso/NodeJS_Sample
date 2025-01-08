@@ -1,10 +1,11 @@
 console.log("Hello");
+//명시적 타입 선언언
 var a = 10; //숫자 number
 var b = "Hello"; //문자열 String
 var c = true; //참,거짓 Boolean
 var d = [1, 2, 3, 4]; //배열 Array 
 var e = { name: "Tom", age: 35 }; //객체 Object 
-a = 50;
+a = 55;
 b = "50";
 console.log("a : " + a, ", typeof " + typeof a);
 console.log("b : " + b, ", typeof " + typeof b);
@@ -31,5 +32,9 @@ var meterLength = addLength / 100;
 //.. 개발 진행 과정..
 //.. 개발 진행 과정..
 //.. 개발 진행 완료
-console.log(addLength);
-console.log(meterLength);
+console.log(addLength + "m");
+console.log(meterLength + "m");
+//---------------                (반환 타입)
+function add(x, y) {
+    return x + y;
+}

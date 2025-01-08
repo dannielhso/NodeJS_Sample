@@ -38,3 +38,5 @@ console.log(meterLength + "m");
 function add(x, y) {
     return x + y;
 }
+var obj = { width: 10, height: 15 };
+var area = obj.width * obj.height;

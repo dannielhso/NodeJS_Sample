@@ -74,3 +74,19 @@ object();
 object.bar = 100;
 object = "hello";
 const n:number = object;
+
+
+// Union 타입 - 단일 책임 원칙에 어긋나니 사용을 자제하라.
+function printId(id:number | String){ // or
+    if(typeof id === "string"){
+        console.log(id.toUpperCase());
+    } else {
+        console.log(typeof id);
+    }
+}
+function printIdStr(id:string){ // 이런 식으로 하나의 기능만을 수행하도록 한다.
+    console.log(id.toUpperCase());
+}
+printId(10);
+printId("Hello");
+

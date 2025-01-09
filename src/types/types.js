@@ -53,11 +53,13 @@ function printName(user) {
 printName({ first: "Bob" });
 // Any 타입 - 오류를 회피하기 위한 임시방편처럼 작동 ( 타입 검사 적용 안함함 )
 var object = { x: 0 };
+/*
 object.foo();
 object();
 object.bar = 100;
 object = "hello";
-var n = object;
+const n:number = object;
+*/
 // Union 타입 - 단일 책임 원칙에 어긋나니 사용을 자제하라.
 function printId(id) {
     if (typeof id === "string") {
@@ -77,4 +79,18 @@ function printCoord(point) {
     console.log("The coordinate's x value is : " + point.x);
     console.log("The coordinate's y value is : " + point.y);
 }
+function calculateDistance(point1, point2) {
+    var locationX = point2.x - point1.x;
+    var locationY = point2.y - point1.y;
+    return Math.sqrt(Math.pow(locationX, 2) + Math.pow(locationY, 2));
+}
 printCoord({ x: 100, y: 200 });
+function getBear() {
+    return {
+        name: "Grizzly",
+        honey: true
+    };
+}
+var bear = getBear();
+console.log(bear.name);
+console.log(bear.honey);

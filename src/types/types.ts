@@ -107,7 +107,46 @@ printCoord({ x:100, y:200 });
 // 해당 객체의 속성이 같다면, 하지만 파라미터가 point1,2,3 ... 255 까지 늘어난다면 계속해서 중복코드가 늘어남.
 
 // 사용자 정의 타입을 사용 할 수 있음.
-type point = {
+/*type point = {
+    x: number,
+    y: number
+} 
+*/
+interface point { // 타입 별칭보다는 인터페이스를 사용 권장한다.
     x: number,
     y: number
 }
+// 개방 폐쇄 원칙에 유리하다라고 했기 때문에
+// 예시
+/*interface Animal{
+    name: string;
+}
+interface Bear extends Animal{
+    honey: boolean;
+} 
+function getBear():Bear {
+    return{
+        name: "Grizzly",
+        honey: true
+    };
+} 
+const bear = getBear();
+console.log(bear.name, bear.honey); // Grizzly true
+*/
+
+// Type Alias의 확장 예시
+type Animal2 = {
+    name: string
+}
+type Bear = Animal2 & {
+    honey: boolean;
+}
+function getBear(): Bear {
+    return {
+        name: "Grizzly",
+        honey: true
+    };
+}
+const bear = getBear();
+console.log(bear.name);
+console.log(bear.honey);

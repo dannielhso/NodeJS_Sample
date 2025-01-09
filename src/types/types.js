@@ -50,4 +50,11 @@ function printName(user) {
         console.log("Your name is " + user.first.toLowerCase());
     }
 }
-printName({ first: "Bob", last: "Chris" });
+printName({ first: "Bob" });
+// Any 타입 - 오류를 회피하기 위한 임시방편처럼 작동 ( 타입 검사 건너뜀 )
+var object = { x: 0 };
+//object.foo();
+//object();
+//bject.bar = 100;
+//object = "hello";
+//const n:number = object;

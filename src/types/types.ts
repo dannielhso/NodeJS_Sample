@@ -55,7 +55,7 @@ function printOutPut(pt: {x: number, y: number}){
 }
 
 // 객체의 선택적 속성
-function printName(user: { first : string, last : string}){
+function printName(user: { first : string, last ?: string}){
     if( user.last !== undefined ){
         console.log("Your First name is " + user.first.toUpperCase());
         console.log("Your Last name is " + user.last.toUpperCase());
@@ -64,4 +64,13 @@ function printName(user: { first : string, last : string}){
     }
 }
 
-printName({first: "Bob", last: "Chris"});
+printName({first: "Bob"});
+
+// Any 타입 - 오류를 회피하기 위한 임시방편처럼 작동 ( 타입 검사 적용 안함함 )
+let object: any = { x:0 };
+
+object.foo();
+object();
+object.bar = 100;
+object = "hello";
+const n:number = object;

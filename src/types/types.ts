@@ -132,7 +132,6 @@ function getBear():Bear {
 } 
 const bear = getBear();
 console.log(bear.name, bear.honey); // Grizzly true
-*/
 
 // Type Alias의 확장 예시
 type Animal2 = {
@@ -150,3 +149,18 @@ function getBear(): Bear {
 const bear = getBear();
 console.log(bear.name);
 console.log(bear.honey);
+*/
+
+// 인터페이스 병합의 차이점
+interface Job {
+    title: string;
+}
+interface Job { // type으로 변경하면 중복 코드 오류가 발생
+    company: string;
+}
+
+const myJob: Job = {
+    title: "SW Engineer",
+    company: "Tech"
+}
+

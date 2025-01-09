@@ -83,36 +83,25 @@ user2.study();
 
 
 // 클래스의 상속
-class CleaningRobot { // Members
+class CleaningRobot extends Robot{ // Members
     // Property 또는 Field(속성, 필드)
-    name: string;
-    model: string;
     cleaningSchedule: string[];
-    status: string = "Active";
 
     // Constructor(생성자) - 인수들을 넘겨 받아 인스턴스를 생성하는 함수
     constructor(name: string, model: string, cleaningSchedule: string[]){
-        this.name = name;
-        this.model = model;
+        super(name, model);
         this.cleaningSchedule = cleaningSchedule;
     };
 
     // Method(행동)
-    performTask(task: string){
-        console.log(`${this.name} is performing ${task}`);
-    };
-
-    updateStatus(newStatus: string){
-        this.status = newStatus;
-        console.log(`${this.name},'s status is ${this.status}`);
-    };
-
-    performCleaning(){
+    override performTask(){ //부모의 메서드를 재정의 하여 사용한다.
+    //performTask(){ // 기본 생성자처럼 숨어있는 함수가 override기능을 사용해준다. 하지만 명시적으로 적어주는게 좋다.
         console.log(`${this.name} is cleaning according to the schedule ${this.cleaningSchedule.join(", ")}`);
-    }
+    };
 }
 
-class CookingRobot { // Members
+
+class CookingRobot{ // Members
     // Property 또는 Field(속성, 필드)
     name: string;
     model: string;
@@ -135,7 +124,7 @@ class CookingRobot { // Members
         this.status = newStatus;
         console.log(`${this.name},'s status is ${this.status}`);
     };
-
+    
     performCleaning(){
         console.log(`${this.name} is cleaning according to the schedule ${this.avilableMenu.join(", ")}`);
     }

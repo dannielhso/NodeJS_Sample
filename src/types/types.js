@@ -28,10 +28,26 @@ function greeter1(name) {
     return "Hello, " + name;
 }
 console.log(greeter1("Tom"));
-// 객체 타입 ( 여러 속성을 가진 타입 )
+// 객체 타입 ( 여러 속성을 가진 타입 ) - 계층 구조로 접근한다.
 var car = {
     color: 'red', // 쉼표로 각 속성을 나눈다.
     model: 'Sedan',
     manufacturer: 'Toyota',
 };
 console.log(car.color);
+// 구분자를 , 또는 ; 로 사용 할 수 있음.
+function printOutPut(pt) {
+    console.log("The X value is : " + pt.x);
+    console.log("The Y value is : " + pt.y);
+}
+// 객체의 선택적 속성
+function printName(user) {
+    if (user.last !== undefined) {
+        console.log("Your First name is " + user.first.toUpperCase());
+        console.log("Your Last name is " + user.last.toUpperCase());
+    }
+    else {
+        console.log("Your name is " + user.first.toLowerCase());
+    }
+}
+printName({ first: "Bob", last: "Chris" });

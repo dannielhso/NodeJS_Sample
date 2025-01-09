@@ -68,16 +68,16 @@ printName({first: "Bob"});
 
 // Any 타입 - 오류를 회피하기 위한 임시방편처럼 작동 ( 타입 검사 적용 안함함 )
 let object: any = { x:0 };
-
+/*
 object.foo();
 object();
 object.bar = 100;
 object = "hello";
 const n:number = object;
-
+*/
 
 // Union 타입 - 단일 책임 원칙에 어긋나니 사용을 자제하라.
-function printId(id:number | String){ // or
+function printId(id: ID){ // or
     if(typeof id === "string"){
         console.log(id.toUpperCase());
     } else {
@@ -87,6 +87,27 @@ function printId(id:number | String){ // or
 function printIdStr(id:string){ // 이런 식으로 하나의 기능만을 수행하도록 한다.
     console.log(id.toUpperCase());
 }
+// 타입 별칭으로도 Union 같이 다른 타입들도 커스텀 가능.
+type ID = number | string;
 printId(10);
 printId("Hello");
 
+
+// Type Alias & Interface
+function printCoord(point: point){
+    console.log("The coordinate's x value is : " + point.x);
+    console.log("The coordinate's y value is : " + point.y);
+}
+function calculateDistance(point1: point, point2: point){
+    const locationX = point2.x - point1.x;
+    const locationY = point2.y - point1.y;
+    return Math.sqrt(locationX ** 2 + locationY ** 2);
+}
+printCoord({ x:100, y:200 });
+// 해당 객체의 속성이 같다면, 하지만 파라미터가 point1,2,3 ... 255 까지 늘어난다면 계속해서 중복코드가 늘어남.
+
+// 사용자 정의 타입을 사용 할 수 있음.
+type point = {
+    x: number,
+    y: number
+}

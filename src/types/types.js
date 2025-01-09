@@ -51,10 +51,30 @@ function printName(user) {
     }
 }
 printName({ first: "Bob" });
-// Any 타입 - 오류를 회피하기 위한 임시방편처럼 작동 ( 타입 검사 건너뜀 )
+// Any 타입 - 오류를 회피하기 위한 임시방편처럼 작동 ( 타입 검사 적용 안함함 )
 var object = { x: 0 };
-//object.foo();
-//object();
-//bject.bar = 100;
-//object = "hello";
-//const n:number = object;
+object.foo();
+object();
+object.bar = 100;
+object = "hello";
+var n = object;
+// Union 타입 - 단일 책임 원칙에 어긋나니 사용을 자제하라.
+function printId(id) {
+    if (typeof id === "string") {
+        console.log(id.toUpperCase());
+    }
+    else {
+        console.log(typeof id);
+    }
+}
+function printIdStr(id) {
+    console.log(id.toUpperCase());
+}
+printId(10);
+printId("Hello");
+// Type Alias & Interface
+function printCoord(point) {
+    console.log("The coordinate's x value is : " + point.x);
+    console.log("The coordinate's y value is : " + point.y);
+}
+printCoord({ x: 100, y: 200 });

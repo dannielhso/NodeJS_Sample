@@ -5,7 +5,7 @@ class Robot { // Members
     model: string;
     status: string = "Active";
 
-    // Constructor(생성자) - 파라미터들을 넘겨 받아 인스턴스를 생성하는 함수수
+    // Constructor(생성자) - 인수들을 넘겨 받아 인스턴스를 생성하는 함수
     constructor(name: string, model: string){
         this.name = name;
         this.model = model;
@@ -36,3 +36,15 @@ r1.performTask("Charging");
 r2.performTask("Explorering");
 r3.performTask("On Repair");
 
+
+//
+class Pet {
+    category: string = "Cat";
+    name: string = "Chu";
+
+    // 개발자가 생성자를 설정하지 않으면 기본생성자가 작동한다.
+    //constructor() {};
+}
+
+let p1 = new Pet();
+console.log(p1.name);

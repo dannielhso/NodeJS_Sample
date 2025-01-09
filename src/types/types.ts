@@ -153,7 +153,7 @@ console.log(bear.honey);
 
 // 인터페이스 병합의 차이점
 interface Job {
-    title: string;
+    title: string; // ; 
 }
 interface Job { // type으로 변경하면 중복 코드 오류가 발생
     company: string;
@@ -161,6 +161,69 @@ interface Job { // type으로 변경하면 중복 코드 오류가 발생
 
 const myJob: Job = {
     title: "SW Engineer",
-    company: "Tech"
+    company: "Tech", // , ,를 붙이는게 다음 코드를 이어나갈 떄 좋다.
 }
 
+// 타입 단언 Type Assertions
+const apiResponse: any = {
+    id: 1,
+    title: "TypeScript Begins",
+    content: "This is contents of Article",
+};
+
+// Error 지만 찾지 못하는 경우(any)
+console.log(apiResponse.like);
+
+interface Content {
+    id: number;
+    title: string;
+    content: string;
+}
+
+//Type assertions using 'as' keyword
+const content1 = apiResponse as Content;
+//Type assertions using <> bracket syntax
+const content2 = <Content>apiResponse;
+
+//console.log(content1.like); // 오류를 찾아낸다. like does not exist
+console.log(content2.content); // OK
+console.log(content2.id); // OK
+
+// 리터럴 타입
+function printText( s: string, alignment: "left" | "right" | "center"){ // 특정 값이 타입처럼 사용됨.
+    
+}
+printText("Hello, world", "left"); // 오타의 위험성이 크기 때문에 실제로 잘 사용되지 않는다.
+//printText("Hello, world", "contre"); // 특정 값을 타입화 하는 것이지만, 재사용성이 떨어져서 다음으로 대체한다.
+
+
+// Enum 열거형 타입 사용
+// 진행 상태 start/progress/end
+function checkDayType(): void {
+    const currentDay = new Date().getDay();
+
+    const isWorkoutDay = currentDay === Day.Tuesday || currentDay === Day.Thurday;
+    const isWeekend = currentDay === Day.Sunday || currentDay === Day.Saturday;
+
+    const isWorkingDay = 
+        currentDay !== Day.Sunday && currentDay !== Day.Saturday &&
+        currentDay !== Day.Monday && currentDay !== Day.Wednesday;
+
+    console.log(`Today is day number ${currentDay}.`);
+    console.log(`Is today a workout day? ${isWorkoutDay}.`);
+    console.log(`Is today a weekend day? ${isWeekend}.`);
+    console.log(`Is today a working day? ${isWorkingDay}.`);
+}
+// 과연 각 숫자들의 의미는 정확이 무엇을 의미하는지 불확실 하다.
+enum Day {
+    Sunday = 0,
+    Monday = 1,
+    Tuesday = 2,
+    Wednesday = 3,
+    Thurday = 4,
+    Friday = 5,
+    Saturday = 6,
+}
+checkDayType();
+
+// 상태나 종류를 구분하는데 많이 사용된다.

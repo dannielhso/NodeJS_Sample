@@ -150,3 +150,18 @@ let c1 = new CleaningRobot("ABC-13", "Prime", ["Sunday", "Monday"]);
 console.log(c1.cleaningSchedule);
 c1.performTask();
 console.log(c1.getName());
+
+
+// Interface
+interface UserDTO {
+    id: number;
+    name: string;
+    email: string;
+    createAt: Date;
+}
+// API 응답 형태를 정의하는 경우엔
+interface ApiResponse {
+    success: boolean;
+    data?: UserDTO; // 데이터가 있을 수도 있고, 없을 수도 있다.
+    message?: string; // 메세지가 있을 수도 있고, 없을 수도 없다.
+}

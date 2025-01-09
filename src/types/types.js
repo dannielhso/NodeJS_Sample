@@ -24,7 +24,14 @@ console.log(arrayOfNumbers2[2]); // 20
 //let singleNumberTuple: [number, number];
 //singleNumberTuple = [5, 12];
 // 함수의 명시적 타입 지정 방법 (매개변수 / Parameter)
-function greeter(name) {
+function greeter1(name) {
     return "Hello, " + name;
 }
-console.log(greeter("Tom"));
+console.log(greeter1("Tom"));
+// 객체 타입 ( 여러 속성을 가진 타입 )
+var car = {
+    color: 'red', // 쉼표로 각 속성을 나눈다.
+    model: 'Sedan',
+    manufacturer: 'Toyota',
+};
+console.log(car.color);

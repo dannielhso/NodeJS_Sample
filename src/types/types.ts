@@ -37,3 +37,20 @@ function greeter1(name:string):string{  // 반환 타입 지정을 습관화 하
     return "Hello, " + name;
 }
 console.log(greeter1("Tom"));
+
+
+// 객체 타입 ( 여러 속성을 가진 타입 ) - 계층 구조로 접근한다.
+const car = {
+    color : 'red', // 쉼표로 각 속성을 나눈다.
+    model : 'Sedan',
+    manufacturer : 'Toyota',
+}
+
+console.log(car.color);
+
+// 구분자를 , 또는 ; 로 사용 할 수 있음.
+function printOutPut(pt: {x: number, y: number}){
+    console.log("The X value is : " + pt.x);
+    console.log("The Y value is : " + pt.y);
+}
+

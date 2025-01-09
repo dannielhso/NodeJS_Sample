@@ -80,3 +80,63 @@ console.log(user2.username); // 출력 : 홍길동
 // 3. 메서드 호출
 user1.study();
 user2.study();
+
+
+// 클래스의 상속
+class CleaningRobot { // Members
+    // Property 또는 Field(속성, 필드)
+    name: string;
+    model: string;
+    cleaningSchedule: string[];
+    status: string = "Active";
+
+    // Constructor(생성자) - 인수들을 넘겨 받아 인스턴스를 생성하는 함수
+    constructor(name: string, model: string, cleaningSchedule: string[]){
+        this.name = name;
+        this.model = model;
+        this.cleaningSchedule = cleaningSchedule;
+    };
+
+    // Method(행동)
+    performTask(task: string){
+        console.log(`${this.name} is performing ${task}`);
+    };
+
+    updateStatus(newStatus: string){
+        this.status = newStatus;
+        console.log(`${this.name},'s status is ${this.status}`);
+    };
+
+    performCleaning(){
+        console.log(`${this.name} is cleaning according to the schedule ${this.cleaningSchedule.join(", ")}`);
+    }
+}
+
+class CookingRobot { // Members
+    // Property 또는 Field(속성, 필드)
+    name: string;
+    model: string;
+    avilableMenu: string[];
+    status: string = "Active";
+
+    // Constructor(생성자) - 인수들을 넘겨 받아 인스턴스를 생성하는 함수
+    constructor(name: string, model: string, avilableMenu: string[]){
+        this.name = name;
+        this.model = model;
+        this.avilableMenu = avilableMenu;
+    };
+
+    // Method(행동)
+    performTask(task: string){
+        console.log(`${this.name} is performing ${task}`);
+    };
+
+    updateStatus(newStatus: string){
+        this.status = newStatus;
+        console.log(`${this.name},'s status is ${this.status}`);
+    };
+
+    performCleaning(){
+        console.log(`${this.name} is cleaning according to the schedule ${this.avilableMenu.join(", ")}`);
+    }
+}

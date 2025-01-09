@@ -44,6 +44,7 @@ const car = {
     color : 'red', // 쉼표로 각 속성을 나눈다.
     model : 'Sedan',
     manufacturer : 'Toyota',
+    age : 31,
 }
 
 console.log(car.color);

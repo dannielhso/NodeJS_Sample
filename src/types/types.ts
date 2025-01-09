@@ -33,7 +33,7 @@ console.log(arrayOfNumbers2[2]); // 20
 
 
 // 함수의 명시적 타입 지정 방법 (매개변수 / Parameter)
-function greeter(name:string):string{  // 반환 타입 지정을 습관화 하자.
+function greeter1(name:string):string{  // 반환 타입 지정을 습관화 하자.
     return "Hello, " + name;
 }
-console.log(greeter("Tom"));
+console.log(greeter1("Tom"));

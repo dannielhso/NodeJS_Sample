@@ -58,7 +58,6 @@ function identityWithGenerics<Type>(arg: Type): Type { //Type 대신 다른 문�
 function isNumber(value: any): boolean {
     return typeof value === 'number' && !isNaN(value);
 }
-
 function isString(value: any): boolean {
     return typeof value === 'string';
 }
